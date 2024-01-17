@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Group_2" data-name="Group 2" transform="translate(-3765 119)">
+    <circle id="Ellipse_3" data-name="Ellipse 3" cx="10" cy="10" r="10" transform="translate(3770 -114)" fill="#e60100"/>
+    <path id="circle-xmark-solid" d="M15,30A15,15,0,1,0,0,15,15,15,0,0,0,15,30ZM10.254,10.254a1.4,1.4,0,0,1,1.986,0l2.754,2.754,2.754-2.754a1.4,1.4,0,0,1,1.986,1.986L16.98,14.994l2.754,2.754a1.4,1.4,0,0,1-1.986,1.986L14.994,16.98,12.24,19.734a1.4,1.4,0,0,1-1.986-1.986l2.754-2.754L10.254,12.24A1.4,1.4,0,0,1,10.254,10.254Z" transform="translate(3765 -119)" fill="#fff"/>
+  </g>
+</svg>

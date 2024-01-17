@@ -10,7 +10,7 @@ export default function Home() {
      <Hero />
      <main>
       <section className={styles.soy_rana_fonk}>
-        <div className={styles.main_title}><h1>Soy Rana Fonk</h1></div>
+        <div className={styles.main_title}><h1><span>Soy Rana Fonk</span></h1></div>
         <div className={styles.presentation}>
           <h2 className={styles.intro}>Amo el entretenimiento. Soy un emprendedor, motor y siempre estoy en búsqueda de proyectos retadores.</h2>
           <p>Actualmente soy productor de contenidos audiovisuales, podcast y creador de contenidos sobre cine, tv y música. También conduzco shows en vivo y soy moderador de charlas en eventos sobre entretenimiento.</p> 
