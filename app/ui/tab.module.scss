@@ -61,8 +61,8 @@
         position: absolute;
         left: 40px;
         width: 635px;
-        .close_content {
-            .close_content_img {
+        .close_icon {
+            .close_icon_img {
                 cursor: pointer;
                 position: absolute;
                 top: -10px;
@@ -74,10 +74,14 @@
             }
         }
     }
-    
     &.close {
         border:0;
         overflow: hidden;
         width: 0;
+        .close_icon {
+            .close_icon_img {
+                display: none;
+            }
+        }
     }
 }

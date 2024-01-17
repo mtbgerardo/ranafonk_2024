@@ -44,13 +44,13 @@ export default function Tab({
       </div>
       <div className={`${styles.tab_content} ${isOpen}`}>
         {content}
-        <div className={styles.close_content}>
+        <div className={styles.close_icon}>
           <Image
             src="/close.svg"
             alt="Close Tab"
             width={25}
             height={25}
-            className={styles.close_content_img}
+            className={styles.close_icon_img}
             onClick={() => setOpenClose(!openClose)}
           />
         </div>
