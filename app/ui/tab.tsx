@@ -8,11 +8,13 @@ export default function Tab({
   title,
   opacity,
   content,
+  is,
 }: {
   icon: string;
   title: string;
   opacity: string;
   content: string;
+  is: "url" | "iframe" | "video";
 }) {
   const [openClose, setOpenClose] = useState(false);
   const isOpen = openClose ? `${styles.open}` : `${styles.close}`;
@@ -43,7 +45,17 @@ export default function Tab({
         </div>
       </div>
       <div className={`${styles.tab_content} ${isOpen}`}>
-        {content}
+        {is == "iframe" ? (
+          <iframe
+            src={`https://open.spotify.com/embed/artist/${content}`}
+            data-testid="spotify-preview--iframe"
+            width="100%"
+            height="392"
+            className="MusicPreviewEmbed__IframeWrapper-sc-wpmte3-0 jlTWaV"
+          ></iframe>
+        ) : (
+          ""
+        )}
         <div className={styles.close_icon}>
           <Image
             src="/close.svg"
