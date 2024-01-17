@@ -1,0 +1,22 @@
+.socials {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: end;
+    margin: 10px 0;
+    height: 50px;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    .socials_icons {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: end;
+        .social_icon {
+            margin: 0 0 0 10px;
+            img {
+                max-height: 15px;
+            }
+        }
+    }
+}

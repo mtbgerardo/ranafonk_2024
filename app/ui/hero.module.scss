@@ -1,0 +1,16 @@
+.hero {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+    .hero_tabs {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        max-width: 675px;
+        position: relative;
+        width: 100%;
+    }
+}

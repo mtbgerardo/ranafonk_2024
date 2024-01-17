@@ -1,95 +1,29 @@
 import Image from 'next/image'
-import styles from './page.module.css'
+import Hero from '@/app/ui/hero'
+import Socials from '@/app/ui/social'
+import styles from './page.module.scss'
+
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+     <Hero />
+     <main>
+      <section className={styles.soy_rana_fonk}>
+        <div className={styles.main_title}><h1>Soy Rana Fonk</h1></div>
+        <div className={styles.presentation}>
+          <h2 className={styles.intro}>Amo el entretenimiento. Soy un emprendedor, motor y siempre estoy en búsqueda de proyectos retadores.</h2>
+          <p>Actualmente soy productor de contenidos audiovisuales, podcast y creador de contenidos sobre cine, tv y música. También conduzco shows en vivo y soy moderador de charlas en eventos sobre entretenimiento.</p> 
+          <p>Creé en 2015 Spoiler Time, uno de los medios sobre cine y series más importantes de Latinoamérica y España. Soy uno de sus directores y me encargo del equipo de redes sociales, las relaciones públicas y las operaciones diarias.</p> 
+          <p>En 2023 creamos QueVer.com, un web app donde pueden encontrar en segundos qué película/serie ver y donde verla.</p>
+          <p>Desde 2010 y hasta la actualidad estoy enfocado al mundo del entretenimiento, especialmente cine, series de TV, streaming y música.</p>
+          <p>Soy productor de podcast para Posta en México desde 2021. Produje los programas Nada que ver y Continuar Viendo, los podcast oficiales en español de Netflix.</p>
+          <p>Estuve más de quince años trabajando en la industria de la música como emprendedor en diferentes empresas relacionadas con música e internet.</p>
+          <p>Claro, también soy baterista, grabé discos, salí en MTV, giré por todo el continente y al día de hoy, cuando puedo sigo haciendo música. También dirigí un documental sobre los fans de Red Hot Chili Peppers alrededor del mundo. Solo me falta escribir un libro... pronto.</p>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <Socials />
+      </section>
+     </main>
+    </>
   )
 }
