@@ -4,13 +4,29 @@
     width: 40px;
     height: 400px;
     transition: all 0.2s ease-in-out;
+    @media(max-width:980px) {
+        height: 40px;
+        width: 100%;
+        margin: 5px 0;
+        max-width: 400px;
+    }
     .tab_img_title {
         height: 400px;
+        @media(max-width:980px) {
+            display: flex;
+            flex-flow: row-reverse;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+        }
         .img {
             .icon {
                 margin: 5px;
                 text-align: center;
                 transform: rotate(-90deg);
+                @media(max-width:980px) {
+                    transform: rotate(0);
+                }
             }
         }
         .title {
@@ -18,6 +34,9 @@
             font-size: 14px;
             height: 360px;
             position: relative;
+            @media(max-width:980px) {
+                height: auto;
+            }
             .text {
                 bottom: -15px;
                 left: 10px;
@@ -27,6 +46,14 @@
                 width: 360px;
                 p {
                     font-size: 14px;
+                }
+                @media(max-width:980px) {
+                    position: unset;
+                    transform: rotate(0);
+                    width: auto;
+                    p {
+                        margin: 0;
+                    }
                 }
             }
         }
@@ -39,6 +66,9 @@
         position: absolute;
         left: 0;
         z-index: 1;
+        @media(max-width: 980px) {
+            position: unset;
+        }
     }
     &.close {
         position: inherit;
@@ -57,10 +87,20 @@
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease;
+    position: relative;
+    @media(max-width:980px) {
+        height: auto;
+    }
     &.open {
         position: absolute;
         left: 40px;
         width: 635px;
+        @media(max-width:980px) {
+            position: relative;
+            left: auto;
+            width: 100%;
+            padding: 20px 0;
+        }
         .close_icon {
             .close_icon_img {
                 cursor: pointer;
@@ -82,6 +122,14 @@
             .close_icon_img {
                 display: none;
             }
+        }
+    }
+    .rf_iframe {
+        border: 0;
+        border-radius: 14px;
+        html body {
+            background: #e60100 !important;
+            background-color: #e60100 !important;
         }
     }
 }

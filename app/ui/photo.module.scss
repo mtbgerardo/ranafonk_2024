@@ -1,5 +1,10 @@
 .photo_container {
     .photo {
         width: 400px;
+        @media(max-width: 980px) {
+            width: 100%;
+            max-width: 400px;
+        }
+
     }
 }
