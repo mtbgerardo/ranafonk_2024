@@ -32,12 +32,12 @@ const data = [
         is: "url",
     },
     {
-        icon: "/microphone.svg",
-        title: "Nada que ver - Podcast Netflix",
-        opacity: "0.65",
-        content: "https://open.spotify.com/embed/show/42EFFA8sB8UiPFnunloX0Z?utm_source: generator",
-        img: "",
-        is: "iframe",
+        icon: "/link.svg",
+        title: "Que Ver",
+        opacity: "0.75",
+        content: "https://quever.com/",
+        img: "/quever.jpeg",
+        is: "url",
     },
     {
         icon: "/microphone.svg",
