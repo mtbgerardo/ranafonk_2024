@@ -6,30 +6,31 @@ import Socials from "@/app/ui/social";
 import styles from "./page.module.scss";
 import { GetStaticProps } from "next";
 import { Data } from "@/app/lib/definitions";
-import { useState } from "react";
-
-/* Fetch Youtube API */
-const fetchVideos = async () => {
-  const YOUTUBE_PLAYLIST_ITEMS_API = "https://www.googleapis.com/youtube/v3/playlistItems";
-  const PLAYLIST_ID = "UCJfMps6SFaIqE4GdkFQiB7g";
-  const videoCount = 30; // 0 ~ 50
-  const REQUEST_URL = `${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&maxResults=${videoCount}&playlistId=${PLAYLIST_ID}&key=${process.env.YOUTUBE_API_KEY}`;
-  const response = await fetch(REQUEST_URL);
-  const data = await response.json();
-  if (!data) {
-    console.log(data)
-    return {
-      notFound: true,
-    };
-  }
-  console.log(data)
-  return {
-    props: { data: data.items },
-    revalidate: 15,
-  };
-};
+import { useState, useEffect } from "react";
 
 export default function Home() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/channels?key=${process.env.YOUTUBE_API_KEY}`, {
+        headers: {
+          Authorization: `Bearer ${process.env.PLAYLIST_ID}`,
+          Accept: "application/json",
+        },
+        cache: "force-cache",
+      });
+      const result = await response.json();
+      setData(result);
+
+      console.log(data);
+    }
+
+    fetchData();
+
+  }, []);
+
   return (
     <>
       <Hero />
