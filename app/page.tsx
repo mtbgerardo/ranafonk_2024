@@ -7,24 +7,31 @@ import styles from "./page.module.scss";
 import { GetStaticProps } from "next";
 import { Data } from "@/app/lib/definitions";
 import { useState, useEffect } from "react";
+import xmlJS from "xml-js";
 
 export default function Home() {
 
-  const [data, setData] = useState([]);
+  const [xmlData, setXmlData] = useState("");
+  const url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCJfMps6SFaIqE4GdkFQiB7g";
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`https://youtube.googleapis.com/youtube/v3/channels?key=${process.env.YOUTUBE_API_KEY}`, {
+      const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
         headers: {
-          Authorization: `Bearer ${process.env.PLAYLIST_ID}`,
-          Accept: "application/json",
+          "content-type": "text/xml; charset=utf-8"
         },
-        cache: "force-cache",
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer"
       });
-      const result = await response.json();
-      setData(result);
+      const result = await response.text();
+      const jsonData = xmlJS.xml2json(result, { compact: true, spaces: 4 });
+      setXmlData(jsonData);
 
-      console.log(data);
+      console.log(xmlData);
     }
 
     fetchData();
