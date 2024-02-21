@@ -3,7 +3,8 @@
 import { useState } from "react";
 import styles from "./tab.module.scss";
 import Image from "next/image";
-import Spinner from "@/app/ui/sppiner";
+import Video from "@/app/components/video";
+import Spinner from "@/app/components/sppiner";
 
 export default function Tab({
   id,
@@ -73,15 +74,7 @@ export default function Tab({
         break;
       case "youtube":
         result = (
-          <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/pHWxYpkffaU?si=QKd5JoKdsz1XIM8H"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+         <Video />
         );
         break;
       default:
