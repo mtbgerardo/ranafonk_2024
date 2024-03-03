@@ -14,6 +14,7 @@ export default function Tab({
   content,
   img,
   is,
+  videoID,
 }: {
   id: number;
   icon: string;
@@ -22,6 +23,7 @@ export default function Tab({
   content: string;
   img: string;
   is: string;
+  videoID: string;
 }) {
   const [openClose, setOpenClose] = useState(false);
   const isOpen = openClose ? `${styles.open}` : `${styles.close}`;
@@ -69,12 +71,12 @@ export default function Tab({
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
             className={styles.rf_iframe}
-          ></iframe>
+            />
         );
         break;
       case "youtube":
         result = (
-         <Video />
+         <Video video={videoID} />
         );
         break;
       default:

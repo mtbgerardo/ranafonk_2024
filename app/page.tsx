@@ -5,26 +5,41 @@ import styles from "./page.module.scss";
 import { EmailTemplate } from "@/app/components/email-template";
 import { Resend } from "resend";
 
-export default function Home() {
-	async function send() {
-		"use server";
+async function getVideo(videoURL: string) {
+	const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUCJfMps6SFaIqE4GdkFQiB7g");
+	const data = await res.json();
+	const id = data.items[0].guid.split(":").pop();
+	return id;
+}
 
+async function send() {
+	try {
 		const resend = new Resend(process.env.RESEND_API_KEY);
 
 		const { data } = await resend.emails.send({
 			from: "Ranafonk <ranafonk@gmail.com>",
 			to: ["mtbgerardo@gmail.com"],
 			subject: "Hello World",
-      text: "Hello",
+			text: "Hello",
 			react: EmailTemplate({ firstName: "Gerardo!" }),
 		});
 
 		console.log(data);
+	} catch (error) {
+		console.log(error);
 	}
+}
+
+export default async function Home({ videoURL }: { videoURL: string }) {
+	// Initiate video requests
+	const videoData = getVideo(videoURL);
+	const video = await Promise.all([videoData]);
+
+	console.log('ID:',video[0]);
 
 	return (
 		<>
-			<Hero />
+			<Hero video={video[0]}/>
 			<main>
 				<section className={styles.soy_rana_fonk}>
 					<div className={styles.main_title}>
@@ -77,9 +92,6 @@ export default function Home() {
 						</p>
 					</div>
 					<Socials />
-					<form action={send}>
-						<button type="submit">Send email</button>
-					</form>
 				</section>
 			</main>
 		</>

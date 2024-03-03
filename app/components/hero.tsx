@@ -7,7 +7,7 @@ import styles from "./hero.module.scss";
 import { data } from "../lib/placeholderdata";
 import { Portfolio } from "../lib/definitions";
 
-export default function Hero() {
+export default function Hero({ video }: { video: string }) {
   const [portfolio, setPortfolio] = useState(data);
 
   return (
@@ -24,6 +24,7 @@ export default function Hero() {
             content={item.content}
             img={item.img}
             is={item.is}
+            videoID={video}
           />
         ))}
       </div>
