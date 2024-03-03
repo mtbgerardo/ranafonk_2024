@@ -12,30 +12,29 @@ async function getVideo(videoURL: string) {
 	return id;
 }
 
-async function send() {
-	try {
-		const resend = new Resend(process.env.RESEND_API_KEY);
-
-		const { data } = await resend.emails.send({
-			from: "Ranafonk <ranafonk@gmail.com>",
-			to: ["mtbgerardo@gmail.com"],
-			subject: "Hello World",
-			text: "Hello",
-			react: EmailTemplate({ firstName: "Gerardo!" }),
-		});
-
-		console.log(data);
-	} catch (error) {
-		console.log(error);
-	}
-}
-
 export default async function Home({ videoURL }: { videoURL: string }) {
 	// Initiate video requests
 	const videoData = getVideo(videoURL);
 	const video = await Promise.all([videoData]);
 
-	console.log('ID:',video[0]);
+	async function send() {
+		'use server';
+		try {
+			const resend = new Resend(process.env.RESEND_API_KEY);
+	
+			const { data } = await resend.emails.send({
+				from: "Ranafonk <ranafonk@gmail.com>",
+				to: ["mtbgerardo@gmail.com"],
+				subject: "Hello World",
+				text: "Hello",
+				react: EmailTemplate({ firstName: "Gerardo!" }),
+			});
+	
+			console.log(data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
 	return (
 		<>
@@ -92,6 +91,9 @@ export default async function Home({ videoURL }: { videoURL: string }) {
 						</p>
 					</div>
 					<Socials />
+					<form action={send}>
+						<button type="submit">Send email</button>
+					</form>
 				</section>
 			</main>
 		</>
