@@ -1,10 +1,10 @@
 "use client"
 
-import { use, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./contact.module.scss";
 
-export default function contact({ send }: { send: any}) {
+export default function Contact({ send }: { send: any}) {
 	
 	const [openClose, setOpenClose] = useState(false);
 	const [name, setName] = useState("");
