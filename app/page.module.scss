@@ -34,4 +34,18 @@
       text-align: justify;
     }
   }
+  .contact {
+    display: flex;
+    margin: 20px auto 0;
+    max-width: 800px;
+    width: 100%;
+    @media(max-width:980px) {
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+    @media(min-width:980px) {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+  }
 }

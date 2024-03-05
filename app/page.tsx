@@ -1,7 +1,7 @@
 import Hero from "@/app/components/hero";
 import Socials from "@/app/components/social";
 import styles from "./page.module.scss";
-//import Contact from "@/app/components/contact";
+import Contact from "@/app/components/contact";
 import { EmailTemplate } from "@/app/components/email-template";
 import { Resend } from "resend";
 
@@ -12,29 +12,32 @@ async function getVideo() {
 	return id;
 }
 
+async function send({ name, email, message }: { name: string, email: string, message: string }) {
+	"use server";
+	try {
+		const resend = new Resend(process.env.RESEND_API_KEY);
+
+		const { data } = await resend.emails.send({
+			from: "zuke.co.in <noreply@zuke.co.in>",
+			to: ["mtbgerardo@gmail.com"],
+			subject: "Mensaje de zuke.co.in",
+			text: "",
+			react: EmailTemplate({
+				name: name,
+				email: email,
+				message: message
+			}),
+		});
+		console.log(data);
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 export default async function Home() {
 	// Initiate video requests
 	const videoData = getVideo();
 	const video = await Promise.all([videoData]);
-
-	async function send() {
-		'use server';
-		try {
-			const resend = new Resend(process.env.RESEND_API_KEY);
-	
-			const { data } = await resend.emails.send({
-				from: "Ranafonk <ranafonk@gmail.com>",
-				to: ["mtbgerardo@gmail.com"],
-				subject: "Hello World",
-				text: "Hello",
-				react: EmailTemplate({ firstName: "Gerardo!" }),
-			});
-	
-			console.log(data);
-		} catch (error) {
-			console.log(error);
-		}
-	}
 
 	return (
 		<>
@@ -90,10 +93,10 @@ export default async function Home() {
 							libro... pronto.
 						</p>
 					</div>
-					<Socials />
-					<form action={send}>
-						<button type="submit">Send email</button>
-					</form>
+					<div className={styles.contact}>
+						<Contact send={send} />
+						<Socials />
+					</div>
 				</section>
 			</main>
 		</>
