@@ -65,11 +65,6 @@ export default async function Home() {
 							Amo el entretenimiento. Soy un emprendedor, motor y siempre estoy
 							en búsqueda de proyectos retadores.
 						</h2>
-						<p>Acabo de abrir una productora llamada <a
-								href="https://creaturavisual.com"
-								target="_blank"
-								style={{color: "rgba(255,0,0,0.9)"}}
-							>Creatura Visual</a> donde realizamos todo tipo de producciones audiovisuales, fotografía, podcasts, diseño y música para comerciales entre otras cosas.</p>
 						<p>
 							Actualmente soy productor de contenidos audiovisuales, podcast y
 							creador de contenidos sobre cine, tv y música. También conduzco
@@ -105,6 +100,7 @@ export default async function Home() {
 							<a
 								href="https://creaturavisual.com"
 								target="_blank"
+								style={{color: "rgb(255,0,0.9)"}}
 							>
 								Creatura Visual
 							</a>
