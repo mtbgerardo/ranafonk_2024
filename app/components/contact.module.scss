@@ -37,6 +37,14 @@
                 padding: 2.5px 5px;
                 width: 100%;
             }
+            .contact_fields {
+                &.open {
+                    display: block;
+                }
+                &.close {
+                    display: none;
+                }
+            }
         }
         .btn {
             background: rgba(var(--primary-color-rgb), 1);
@@ -83,14 +91,6 @@
             overflow: hidden;
             position: inherit;
             .close_icon {
-                display: none;
-            }
-        }
-        .contact_fields {
-            &.open {
-                display: block;
-            }
-            &.close {
                 display: none;
             }
         }

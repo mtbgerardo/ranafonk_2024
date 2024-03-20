@@ -11,13 +11,15 @@ export default function Contact({ send }: { send: any }) {
 	const [email, setEmail] = useState("");
 	const [subject, setSubject] = useState("");
 	const [message, setMessage] = useState("");
-	const [legend, setLegend] = useState("Escribe tu mensaje...")
+	const [legend, setLegend] = useState("")
 
 	const isOpen = openClose ? `${styles.open}` : `${styles.close}`;
+	let isSend = legend === "¡Mensaje enviado, gracias!" ? `${styles.close}` : `${styles.open}`;
 	
   
 	const handleOpen = () => {
 	  setOpenClose(!openClose);
+	  setLegend("Escribe tu mensaje...");
 	};
   
 	const handleClose = () => {
@@ -55,7 +57,7 @@ export default function Contact({ send }: { send: any }) {
 			<div className={`${styles.contact_form} ${isOpen}`}>
 				<form id="ranafonkform" onSubmit={handleSubmit}>
 					<legend><p>{legend}</p></legend>
-					<div className={`${styles.contact_fields} ${isOpen}`}>
+					<div className={`${styles.contact_fields} ${isSend}`}>
 						<input 
 							type="text" 
 							name="name" 
