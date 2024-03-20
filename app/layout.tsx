@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { poppins } from "@/app/utils/fonts" 
 import "./globals.css";
 import Head from "next/head";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
-
-export const poppins_init = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "600", "700"],
-  variable: "--font-poppins",
-  style: ["normal", "italic"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +20,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" type="image/svg+xml" />
       </head>
-      <body className={`${poppins_init.variable}`}>
+      <body className={`${poppins}`}>
         <Header />
         {children}
         <Footer />

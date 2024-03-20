@@ -48,6 +48,10 @@
   margin: 0;
 }
 
+.poppins {
+  font-family: var(--font-poppins);
+}
+
 html {
   color-scheme: dark;
 }
