@@ -76,7 +76,7 @@ const data = [
         title: "A Fanatic By Choice. Documental RHCP fans",
         url: "https://afanaticbychoice.com/",
         opacity: "0.35",
-        content: "http://afanaticbychoice.com/",
+        content: "https://afanaticbychoice.com/",
         img: "",
         is: "iframe_url",
     },

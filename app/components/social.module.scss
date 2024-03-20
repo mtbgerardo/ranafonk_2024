@@ -17,10 +17,16 @@
         align-items: flex-end;
         .social_icon {
             margin: 0 0 0 10px;
+            @media(max-width:980px) {
+                margin: 25px 0 0 10px;
+            }
             img {
                 width: auto;
                 height: auto;
                 max-height: 15px;
+                @media(max-width:980px) {
+                    max-height: 48px;
+                }
             }
         }
     }

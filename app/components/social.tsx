@@ -13,7 +13,7 @@ const Social = ({
   return (
     <div className={styles.social_icon}>
       <a href={url} target="_blank">
-        <Image src={img} alt={alt} width={25} height={25} priority />
+        <Image src={img} alt={alt} width={48} height={48} priority />
       </a>
     </div>
   );

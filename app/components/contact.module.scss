@@ -116,6 +116,9 @@
                 max-width: 20px;
                 transition: all 0.2s ease-in-out;
                 width: auto;
+                @media(max-width:980px) {
+                    max-width: 25px;
+                }
             }
             &:hover {
                 background: rgba(var(--primary-color-rgb), 1);
