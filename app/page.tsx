@@ -4,28 +4,39 @@ import styles from "./page.module.scss";
 import Contact from "@/app/components/contact";
 import { EmailTemplate } from "@/app/components/email-template";
 import { Resend } from "resend";
+import { Poppins } from "next/font/google";
 
 async function getVideo() {
-	const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUCJfMps6SFaIqE4GdkFQiB7g");
+	const res = await fetch(
+		"https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUCJfMps6SFaIqE4GdkFQiB7g"
+	);
 	const data = await res.json();
 	const id = data.items[0].guid.split(":").pop();
 	return id;
 }
 
-async function send({ name, email, message }: { name: string, email: string, message: string }) {
+async function send({
+	name,
+	email,
+	message,
+}: {
+	name: string;
+	email: string;
+	message: string;
+}) {
 	"use server";
 	try {
 		const resend = new Resend(process.env.RESEND_API_KEY);
 
 		const { data } = await resend.emails.send({
-			from: "zuke.co.in <noreply@zuke.co.in>",
-			to: ["mtbgerardo@gmail.com"],
-			subject: "Mensaje de zuke.co.in",
+			from: "ranafonk.com <noreply@ranafonk.com>",
+			to: ["ranafonk@gmail.com"],
+			subject: "Mensaje de ranafonk.com",
 			text: "",
 			react: EmailTemplate({
 				name: name,
 				email: email,
-				message: message
+				message: message,
 			}),
 		});
 		console.log(data);
@@ -41,7 +52,7 @@ export default async function Home() {
 
 	return (
 		<>
-			<Hero video={video[0]}/>
+			<Hero video={video[0]} />
 			<main>
 				<section className={styles.soy_rana_fonk}>
 					<div className={styles.main_title}>
@@ -61,14 +72,41 @@ export default async function Home() {
 							entretenimiento.
 						</p>
 						<p>
-							Creé en 2015 Spoiler Time, uno de los medios sobre cine y series
-							más importantes de Latinoamérica y España. Soy uno de sus
-							directores y me encargo del equipo de redes sociales, las
-							relaciones públicas y las operaciones diarias.
+							Creé en 2015{" "}
+							<a
+								href="https://spoilertime.com"
+								target="_blank"
+							>
+								Spoiler Time
+							</a>
+							, uno de los medios sobre cine y series más importantes de
+							Latinoamérica y España. Soy uno de sus directores y me encargo del
+							equipo de redes sociales, las relaciones públicas y las
+							operaciones diarias.
 						</p>
 						<p>
-							En 2023 creamos QueVer.com, un web app donde pueden encontrar en
-							segundos qué película/serie ver y donde verla.
+							En 2023 creamos{" "}
+							<a
+								href="https://quever.com"
+								target="_blank"
+							>
+								QueVer.com
+							</a>
+							, un web app donde pueden encontrar en segundos qué película/serie
+							ver y donde verla.
+						</p>
+						<p>
+							En 2024 lancé mi propia productora llamada{" "}
+							<a
+								href="https://creaturavisual.com"
+								target="_blank"
+							>
+								Creatura Visual
+							</a>
+							, especializada en producción audiovisual, contamos con el mejor
+							equipo creativo, influencers y personalidades. Desde la concepción
+							hasta el material final, ofrecemos soluciones audiovisuales
+							excepcionales para impulsar negocios.
 						</p>
 						<p>
 							Desde 2010 y hasta la actualidad estoy enfocado al mundo del

@@ -10,6 +10,7 @@ export default function Tab({
   id,
   icon,
   title,
+  url,
   opacity,
   content,
   img,
@@ -19,6 +20,7 @@ export default function Tab({
   id: number;
   icon: string;
   title: string;
+  url: string;
   opacity: string;
   content: string;
   img: string;
@@ -27,13 +29,14 @@ export default function Tab({
 }) {
   const [openClose, setOpenClose] = useState(false);
   const isOpen = openClose ? `${styles.open}` : `${styles.close}`;
+  const isIframe = openClose ? "" : content;
   const [iframe, setIframe] = useState("");
   const [loading, setLoading] = useState<boolean>(true);
   const [width, setWidth] = useState("0");
 
   const handleOpen = () => {
     setOpenClose(!openClose);
-    setIframe(content);
+    setIframe(isIframe);
     setTimeout(() => setLoading(false), 500);
     setTimeout(() => setWidth("85%"), 1000);
   };
@@ -44,6 +47,10 @@ export default function Tab({
     setIframe("");
     setTimeout(() => setLoading(true), 500);
   };
+
+  let urlTitle = url
+  .replace("https://", "")
+  .replace("/","");
 
   const switchContent = () => {
     let result;
@@ -59,6 +66,26 @@ export default function Tab({
               height={230}
             />
           </a>
+        );
+        break;
+      case "iframe_url":
+        result = (
+          <>
+          <div style={{textAlign:"center",color:"#000000"}}>
+            <a href={url} target="_blank">
+            {urlTitle}
+            </a>
+          </div>
+          <iframe
+            src={iframe}
+            width={width}
+            height="352"
+            allowFullScreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            className={styles.rf_iframe}
+            />
+          </>
         );
         break;
       case "iframe":

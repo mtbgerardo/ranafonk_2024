@@ -2,14 +2,25 @@ const data = [
     {
         icon: "/youtube.svg", 
         title: "Youtube",
+        url: "",
         opacity: "1",
         content: "Content Youtube",
         img: "",
         is: "youtube",
     },
     {
+        icon: "/link.svg",
+        title: "Creatura Visual",
+        url: "https://creaturavisual.com/",
+        opacity: "0.99",
+        content: "https://creaturavisual.com/wp-content/uploads/2024/02/trailer_Final_Febrero2024.mp4",
+        img: "/creatura_visual.png",
+        is: "iframe_url",
+    },
+    {
         icon: "/microphone.svg",
         title: "Spoiler Tracks",
+        url: "",
         opacity: "0.95",
         content: "https://open.spotify.com/embed/show/1JXzyDG4PdoECSCvvJlpxL?utm_source: generator",
         img: "",
@@ -18,6 +29,7 @@ const data = [
     {
         icon: "/microphone.svg",
         title: "Charlas Picantes Sobre Red Hot Chili Peppers",
+        url: "",
         opacity: "0.85",
         content: "https://open.spotify.com/embed/show/1NGXwtsJRrUcU3qn4g925J?utm_source: generator",
         img: "",
@@ -26,6 +38,7 @@ const data = [
     {
         icon: "/link.svg",
         title: "Spoiler Time",
+        url: "https://spoilertime.com/",
         opacity: "0.75",
         content: "https://spoilertime.com/",
         img: "/spoilertime.jpeg",
@@ -34,6 +47,7 @@ const data = [
     {
         icon: "/link.svg",
         title: "Que Ver",
+        url: "https://quever.com/",
         opacity: "0.75",
         content: "https://quever.com/",
         img: "/quever.jpeg",
@@ -42,6 +56,7 @@ const data = [
     {
         icon: "/microphone.svg",
         title: "Un mensaje de audio que podría ser un podcast",
+        url: "",
         opacity: "0.55",
         content: "https://open.spotify.com/embed/show/5V0L33VPtBCnBicX7ELFOA?utm_source: generator",
         img: "",
@@ -50,6 +65,7 @@ const data = [
     {
         icon: "/microphone.svg",
         title: "Perdimos el Guion",
+        url: "",
         opacity: "0.45",
         content: "https://open.spotify.com/embed/show/1Mwb0V9L0gWowx5OYfpY0Q?utm_source: generator",
         img: "",
@@ -58,14 +74,16 @@ const data = [
     {
         icon: "/film.svg",
         title: "A Fanatic By Choice. Documental RHCP fans",
+        url: "https://afanaticbychoice.com/",
         opacity: "0.35",
         content: "http://afanaticbychoice.com/",
         img: "",
-        is: "iframe",
+        is: "iframe_url",
     },
     {
         icon: "/headphones.svg",
         title: "Ajiputaparió: Tributo a Red Hot Chili Peppers",
+        url: "",
         opacity: "0.25",
         content: "https://open.spotify.com/embed/artist/6a2ADnXdGhg8YHl9iQjLF5",
         img: "",
@@ -74,6 +92,7 @@ const data = [
     {
         icon: "/headphones.svg",
         title: "Música: Timmy O'Tool",
+        url: "",
         opacity: "0.15",
         content: "https://open.spotify.com/embed/artist/0qy2K3V7CfqRSRCWabyQ7H",
         img: "",
@@ -82,6 +101,7 @@ const data = [
     {
         icon: "/headphones.svg",
         title: "Música: Americana Soundsystem",
+        url: "",
         opacity: "0.10",
         content: "https://open.spotify.com/embed/artist/2pOG9zrfYoMBeANa4jKigV",
         img: "",

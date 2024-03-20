@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import styles from "./contact.module.scss";
 
-export default function Contact({ send }: { send: any}) {
+export default function Contact({ send }: { send: any }) {
 	
 	const [openClose, setOpenClose] = useState(false);
 	const [name, setName] = useState("");
@@ -14,6 +14,7 @@ export default function Contact({ send }: { send: any}) {
 	const [legend, setLegend] = useState("Escribe tu mensaje...")
 
 	const isOpen = openClose ? `${styles.open}` : `${styles.close}`;
+	
   
 	const handleOpen = () => {
 	  setOpenClose(!openClose);
@@ -39,52 +40,60 @@ export default function Contact({ send }: { send: any}) {
 			<div
 				className={styles.btn_contact} 
 				onClick={handleOpen}>
-					<p>Contáctame</p>
-					<Image
-						src="/message-icon.svg"
-						alt="Close"
-						width={25}
-						height={25}
-						className={styles.message_icon}
-						onClick={handleClose}
-					/>
+					<div className={styles.message_container}>
+						<Image
+							src="/message-icon.svg"
+							alt="Contáctame"
+							title="Contáctame"
+							width={15}
+							height={15}
+							className={styles.message_icon}
+							onClick={handleClose}
+						/>
+					</div>
 			</div>
 			<div className={`${styles.contact_form} ${isOpen}`}>
-				<form onSubmit={handleSubmit}>
+				<form id="ranafonkform" onSubmit={handleSubmit}>
 					<legend><p>{legend}</p></legend>
-					<input 
-						type="text" 
-						name="name" 
-						placeholder="Nombre:"
-						onChange={event => setName(event.target.value)}
-  						value={name}
-						maxLength={35}
-						required 
-					/>
-					<input 
-						type="email" 
-						name="email" 
-						placeholder="Email:"
-						onChange={event => setEmail(event.target.value)}
-  						value={email}
-						required />
-					<input 
-						type="hidden" 
-						name="subject" 
-						placeholder="subject:"
-						onChange={event => setSubject(event.target.value)}
-  						value={subject}
-						maxLength={35}
+					<div className={`${styles.contact_fields} ${isOpen}`}>
+						<input 
+							type="text" 
+							name="name" 
+							placeholder="Nombre:"
+							onChange={event => setName(event.target.value)}
+							value={name}
+							maxLength={35}
+							required 
 						/>
-					<textarea 
-						name="message" 
-						placeholder="Mensaje"
-						onChange={event => setMessage(event.target.value)}
-						maxLength={200}
-  						value={message} 
-						required>
-					</textarea>
-					<button  className={styles.btn} type="submit">Enviar</button>
+						<input 
+							type="email" 
+							name="email" 
+							placeholder="Email:"
+							onChange={event => setEmail(event.target.value)}
+							value={email}
+							required />
+						<input 
+							type="hidden" 
+							name="subject" 
+							placeholder="subject:"
+							onChange={event => setSubject(event.target.value)}
+							value={subject}
+							maxLength={35}
+							/>
+						<textarea 
+							name="message" 
+							placeholder="Mensaje"
+							onChange={event => setMessage(event.target.value)}
+							maxLength={200}
+							value={message} 
+							required>
+						</textarea>
+						<button  
+						className={styles.btn}
+						type="submit">
+							Enviar
+						</button>
+					</div>
 					<div className={styles.close_icon}>
 					<Image
 						src="/close.svg"

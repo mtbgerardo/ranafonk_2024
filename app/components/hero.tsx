@@ -20,6 +20,7 @@ export default function Hero({ video }: { video: string }) {
             id={index}
             icon={item.icon}
             title={item.title}
+            url={item.url}
             opacity={item.opacity}
             content={item.content}
             img={item.img}

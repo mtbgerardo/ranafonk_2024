@@ -5,10 +5,12 @@ import Head from "next/head";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 
-const poppins = Poppins({
-  weight: ["400", "600", "700"],
-  style: ["normal", "italic"],
+export const poppins_init = Poppins({
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +28,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" type="image/svg+xml" />
       </head>
-      <body className={poppins.className}>
+      <body className={`${poppins_init.variable}`}>
         <Header />
         {children}
         <Footer />
